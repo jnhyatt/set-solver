@@ -49,7 +49,7 @@ impl fmt::Display for Card {
 }
 
 fn same_or_different<T: PartialEq>(arr: &[T]) -> bool {
-    arr.iter().all_equal() || arr.iter().all_unique()
+    arr.iter().all_equal()// || arr.iter().all_different()
 }
 
 fn is_match(arr: &[Card]) -> bool {
