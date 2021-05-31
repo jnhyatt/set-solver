@@ -49,12 +49,18 @@ impl fmt::Display for Card {
 }
 
 fn same_or_different<T: PartialEq>(arr: &[T]) -> bool {
-    arr.iter().all_equal()// || arr.iter().all_unique()
+    arr.iter().all_equal() // || arr.iter().all_unique()
 }
 
 fn is_match(arr: &[Card]) -> bool {
     let colors: Vec<_> = arr.iter().map(|x| &x.color).collect();
+    let shapes: Vec<_> = arr.iter().map(|x| &x.shape).collect();
+    let numbers: Vec<_> = arr.iter().map(|x| &x.number).collect();
+    let fills: Vec<_> = arr.iter().map(|x| &x.fill).collect();
     same_or_different(&colors)
+        && same_or_different(&shapes)
+        && same_or_different(&numbers)
+        && same_or_different(&fills)
 }
 
 fn main() {
